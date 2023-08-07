@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactList from "./ContactList";
 
 export default function ContactRow({ contact }) {
