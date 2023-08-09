@@ -2,19 +2,19 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ContactRow from "./ContactRow";
 
-const dummyContacts = [
-  { id: 1, name: "R2-D2", phone: "222-222-2222", email: "r2d2@droids.com" },
-  { id: 2, name: "C-3PO", phone: "333-333-3333", email: "c3po@droids.com" },
-  { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
-];
+// const dummyContacts = [
+//   { id: 1, name: "R2-D2", phone: "222-222-2222", email: "r2d2@droids.com" },
+//   { id: 2, name: "C-3PO", phone: "333-333-3333", email: "c3po@droids.com" },
+//   { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
+// ];
 
 //set variables for selected row (ContactRow)
 //targeted by id of each row (object)
 //when selected, will render selected ContactRow and details
 
-export default function ContactList() {
-  const [contacts, setContacts] = useState(dummyContacts);
-  ContactList; setSelectedContactId = {setSelectedContactId} 
+export default function ContactList({ chosenId }) {
+  const [contacts, setContacts] = useState([]);
+  //ContactList; setSelectedContactId = {setSelectedContactId} 
   //   console.log("Contacts: ", contacts);
   useEffect(() => {
     async function fetchContacts() {
@@ -47,7 +47,7 @@ export default function ContactList() {
           <td>Phone</td>
         </tr>
         {contacts.map((contact) => {
-          return <ContactRow key={contact.id} contact={contact} />;
+          return <ContactRow key={contact.id} bubbles={contact} pickId={chosenId}/>;
         })}
       </tbody>
     </table>
